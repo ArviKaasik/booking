@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  client:
+    container_name: booking-client
+    image: booking-client
+    ports:
+      - "5173:5173"
+    healthcheck:
+      test: exit 0 || exit 1
+    restart: always
+  server:
+    container_name: booking-server
+    image: booking-server
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: exit 0 || exit 1
+    restart: always
